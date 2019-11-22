@@ -40,9 +40,9 @@ for (int x=0; x<800;x++){
 		       }
 		       n++;
 	       }
-	       double color = ((n*.01) * 255);
-	       double color1 = ((n * n ) * 255);    // change color
-	       double color2 = ((n* .09) * 255);
+	       double color = ((n) % 255);
+	       double color1 = ((n * n ) % 255);    // change color
+	       double color2 = ((n / 2) % 255);
 	       gfx_color(color,color1,color2);
 	       if (n == 100)
 	       {
