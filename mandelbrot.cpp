@@ -41,7 +41,9 @@ for (int x=0; x<800;x++){
 		       n++;
 	       }
 	       double color = ((n*.01) * 255);
-	       gfx_color(color,color,color);
+	       double color1 = ((n*.9) * 255);    // change color
+	       double color2 = ((n*.01) % 255);
+	       gfx_color(color,color1,color2);
 	       if (n == 100)
 	       {
 		       gfx_point(x,y);
