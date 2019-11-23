@@ -38,7 +38,7 @@ int main()
 		       
 	        	double color = n*n % 250;
 	        	double color1 = (n * 3/2) % 250;    // change color
-	        	double color2 = n % 250;
+	        	double color2 = sin(n) / 250;
 			gfx_color(color, color1, color2);
 			gfx_point(x,y);
 	       }
