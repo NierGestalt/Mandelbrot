@@ -4,15 +4,17 @@ extern "C"{
 #include "gfx.h"
 }
 
-
+#define WINDOW_HEIGHT 800
+#define WINDOW_WIDTH 800
+#define MAX_ITERATIONS 100
 
 int main()
 {
-	gfx_open( 800, 800, "mandelbrot");
+	gfx_open( WINDOW_WIDTH, WINDOW_HEIGHT, "Mandelbrot");
 
-	for (int x=0; x<800;x++)
+	for (int x = 0; x < WINDOW_WIDTH; x ++)
 	{
-	       for(int y=0; y<800; y++)
+	       for(int y = 0; y < WINDOW_HEIGHT; y++)
 	       {
 		       int n = 0;
 		       int z = 0;
@@ -23,7 +25,7 @@ int main()
 		       double ca = a;
 		       double cb = b;
 	
-		       while (n < 100)
+		       while (n < MAX_ITERATIONS)
 		       {
 			        double aa = (a*a) - (b*b);
 			        double bb = 2*a*b;
@@ -36,13 +38,13 @@ int main()
 				n++;
 		       }
 		       
-	        	double color = n*n % 250;
-	        	double color1 = (n * 3/2) % 250;    // change color
-	        	double color2 = sin(n) / 250;
-			gfx_color(color, color1, color2);
+	        	double red = n*n*n % 255;
+	        	double green = (n * 3/2) % 256;    // change color
+	        	double blue = n / 2 % 255;
+			gfx_color(red, green, blue);
 			gfx_point(x,y);
 	       }
-       }
+        }
 	int button = gfx_wait();
 	return 0;
 }
