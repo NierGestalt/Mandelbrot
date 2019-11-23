@@ -8,6 +8,7 @@ extern "C"{
 #define WINDOW_WIDTH 800
 #define MAX_ITERATIONS 100
 
+void drawMandelbrot(int n, int xPos, int yPos);
 int main()
 {
 	gfx_open( WINDOW_WIDTH, WINDOW_HEIGHT, "Mandelbrot");
@@ -36,17 +37,20 @@ int main()
 				       break;
 		       		}
 				n++;
-		       }
-
-	        	double red = n*n*n % 255;
-	        	double green = (n * 3/2) % 256;    // change color
-	        	double blue = n / 2 % 255;
-			gfx_color(red, green, blue);
-			gfx_point(xPos,yPos);
+		        }
+			drawMandelbrot(n,xPos,yPos);
 	       }
         }
 	int button = gfx_wait();
 	return 0;
 }
 
+void drawMandelbrot(int n, int xPos, int yPos)
+{
+	double red = n*n*n % 255;
+       	double green = (n * 3/2) % 256;    // change color
+  	double blue = n / 2 % 255;
+	gfx_color(red, green, blue);
+	gfx_point(xPos,yPos);
+}	
 
