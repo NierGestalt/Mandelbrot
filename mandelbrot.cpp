@@ -86,7 +86,8 @@ int main()
 	std::cout << "\n\n	<< Use the up Arrow to move to the next Julia Set\n"
 		     "	<< Use Space Bar for Mandelbrot set\n"
 		     "	<< Use Down Arrow to see Tests\n"
-		     "	<< To see More Read Line: 210\n\n";
+		     "	<< To see More Read Line: 210\n"
+		     "	<< Quit (q)\n\n";
 
 
 	for (int xPos = 0; xPos < WINDOW_WIDTH; xPos ++)
@@ -106,7 +107,10 @@ int main()
 			int button = gfx_wait();
 			if(debug)
 				std::cout << button << std::endl;
-			
+
+			if(button == 113) 
+				break;
+
 			if(button == 32)
 			{
 				for (int xPos = 0; xPos < WINDOW_WIDTH; xPos ++)
@@ -236,7 +240,7 @@ int getJuliaSet_2nd(int xPos,int yPos, double C_Real, double C_Imag)
 		double aa = (a*a) - (b*b);
 		double bb = 2*a*b;
 		a = aa - C_Real;		
-		b = bb / C_Imag;
+		b = bb - C_Imag;
 		if (abs(a+b) > 4)
 		{
 			break;
