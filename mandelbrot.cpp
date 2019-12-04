@@ -5,7 +5,7 @@
  */
 
 #include <iostream>
-#include <math.h>
+//#include <math.h>
 #include "Timer.h"
 #include "vector"
 #include "iostream"
@@ -19,10 +19,11 @@ extern "C"{
    ==============
    */
 
-#define COMPLEX 1
+#define COMPLEX true
+
+
 #if COMPLEX
-#include <complex>
-typedef std::complex<double> Complex;
+#include "Complex.h"
 #endif
 
 /*
@@ -222,7 +223,7 @@ int getJuliaSet(int xPos,int yPos, double C_Real, double C_Imag)
 
 /**
  *	a = aa + C_Real; b = bb + C_Imag;
- * 	Lines: 227,228
+ * 	Lines: 242,243
  * 	look at your results using the down arrow.
  *
  **/
@@ -239,8 +240,8 @@ int getJuliaSet_2nd(int xPos,int yPos, double C_Real, double C_Imag)
 	{
 		double aa = (a*a) - (b*b);
 		double bb = 2*a*b;
-		a = aa - C_Real;		
-		b = bb - C_Imag;
+		a = aa + C_Real;		
+		b = bb -  C_Imag;
 		if (abs(a+b) > 4)
 		{
 			break;
