@@ -5,7 +5,6 @@
  */
 
 #include <iostream>
-//#include <math.h>
 #include "Timer.h"
 #include "vector"
 #include "iostream"
